@@ -4,6 +4,8 @@ jobs:
         sync:
                 runs-on: ubuntu-latest
                 steps:
+                        - name: Check out repository code
+                          uses: actions/checkout@v2
                         - run: aws s3 cp ${{ github.repository }}/ReadMe.md s3://testbucketforjakethekoenig
                           env:
                                 AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
